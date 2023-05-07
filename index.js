@@ -8,11 +8,25 @@ const arr = Array(wordLength);
 console.log(arr);
 const winningWord = arr.fill("_", 0, wordLength);
 console.log(winningWord);
-
+const rebirth = document.querySelector(".rebirth");
+console.log(rebirth);
+let fillIn;
 winningWord.forEach((blank) => {
+  fillIn = document.createElement("p");
+  fillIn.innerText = blank;
   console.log(blank);
-  document.createElement("p");
+  console.log(fillIn);
+
+  rebirth.appendChild(fillIn);
+  //   fillIn.innerText = blank;
 });
+let allBlanks = document.querySelectorAll("p");
+console.log(allBlanks);
+
+// console.log(allBlanks[2]);
+// for (let i = 0; i < winningWord.length; i++) {
+//   fillIn = document.createElement("p");
+// }
 window.addEventListener("keypress", (e) => {
   console.log(e.key);
   while (wordLength > 0) {
@@ -24,6 +38,11 @@ window.addEventListener("keypress", (e) => {
         console.log(winningWord);
         wordLength--;
         console.log(wordLength);
+        console.log(fillIn);
+        console.log(winningWord.indexOf(winningWord[i]), "index");
+        console.log(allBlanks[winningWord.indexOf(winningWord[i])]);
+        // allBlanks[winningWord.indexOf(winningWord[i])].innerText =
+        allBlanks[i].innerText = randomWord[i];
       } else {
         console.log(i);
         wordLength--;
